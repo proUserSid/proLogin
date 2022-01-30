@@ -1,0 +1,56 @@
+<h1>Welcome Back!</h1>
+<form
+  novalidate
+  #form="ngForm"
+  (ngSubmit)="onLogin(form.invalid)"
+  class="form"
+  appInvalidFocusField
+>
+  <div class="form-group">
+    <input
+      type="email"
+      name="email"
+      placeholder="Email Address"
+      [(ngModel)]="email"
+      id="email"
+      class="form-control"
+      #emailRef="ngModel"
+      email
+      required
+    />
+    <div class="error-message" *ngIf="form.submitted && emailRef.invalid">
+      <ng-container *ngIf="!!emailRef?.errors['email']">
+        Please Enter Valid Email
+      </ng-container>
+    </div>
+  </div>
+  <div class="form-group">
+    <input
+      type="password"
+      name="password"
+      id="password"
+      [(ngModel)]="password"
+      placeholder="Set a Password"
+      class="form-control"
+      minlength="8"
+      maxlength="40"
+      pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])$"
+      #passwordRef="ngModel"
+      required
+    />
+    <div class="error-message" *ngIf="form.submitted && passwordRef.invalid">
+      <span *ngIf="!!passwordRef.errors['minlength']">
+        Password must be at least 8 characters long.
+      </span>
+      <span *ngIf="!!passwordRef.errors['maxlength']">
+        Password is limited upto 40 characters.
+      </span>
+      <span *ngIf="!!passwordRef.errors['pattern']">
+        Please enter valid pasword,it must contain at least one capital and one
+        lower-case letter (Aa-Zz), one special symbol (#, &, % etc), and one
+        number (0-9) in your password for the best strength.
+      </span>
+    </div>
+  </div>
+  <button type="submit" class="btn">GET STARTED</button>
+</form>

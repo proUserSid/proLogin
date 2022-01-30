@@ -1,1 +1,83 @@
-/* You can add global styles to this file, and also import other style files */
+/* Imports */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400|Rajdhani:300,600,400,500,700");
+
+/* Reset CSS */
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Rajdhani", -apple-system, BlinkMacSystemFont, Roboto, Arial,
+    sans-serif;
+}
+
+/* CSS */
+html,
+body {
+  height: 100%;
+  overflow: auto;
+  background-color: #fff;
+  font-family: "Rajdhani", -apple-system, BlinkMacSystemFont, Roboto, Arial,
+    sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  padding: 2rem 1rem;
+  color: #efeeeb;
+}
+
+.btn {
+  width: 100%;
+  border: 1px solid #d1ce56;
+  padding: 0.5rem;
+  font-size: 2rem;
+  color: #32363a;
+  background-color: #d1ce56;
+  margin-top: 2rem;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: #afad37;
+  }
+}
+
+.form {
+  .form-group {
+    width: 100%;
+    margin-bottom: 1rem;
+    .form-control {
+      border: 1px solid #efeeeb;
+      background-color: #32363a;
+      padding: 0.5rem 1rem;
+      line-height: 1.2;
+      font-size: 1rem;
+      color: #efeeeb;
+      background: #32363a;
+      width: 100%;
+      font-weight: 700;
+      &:focus {
+        border-color: #d1ce56 !important;
+        outline: 0;
+      }
+    }
+    .error-message {
+      color: #fb5a34;
+      font-size: 0.85rem;
+      padding-top: 0.25rem;
+      display: none;
+    }
+  }
+
+  &.ng-submitted {
+    .form-group .form-control.ng-invalid {
+      border-color: #fb5a34;
+    }
+    .error-message {
+      display: block;
+    }
+  }
+}
